@@ -1,17 +1,18 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'rotary_list_platform_interface.dart';
+class MethodChannelRotaryList {
+  late final void Function(int i) _callback;
 
-/// An implementation of [RotaryListPlatform] that uses method channels.
-class MethodChannelRotaryList extends RotaryListPlatform {
-  /// The method channel used to interact with the native platform.
-  @visibleForTesting
-  final methodChannel = const MethodChannel('rotary_list');
+  MethodChannelRotaryList(void Function(int i) callback) {
+    _callback = callback;
+    MethodChannel methodChannel = const MethodChannel('rotary_list');
+    methodChannel.setMethodCallHandler(callHandler);
+  }
 
-  @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<void> callHandler(MethodCall call) async {
+    int? value = int.tryParse(call.arguments);
+    if (call.method == "rotaryEvent" && value != null) {
+      _callback(value);
+    }
   }
 }
