@@ -25,3 +25,50 @@ To use this plugin, the `minSdkVersion` of your android project has to be at lea
 2. Run `flutter pub get` in your terminal
 
 ## Usage
+Since the RotaryList widgets are subclasses of their corresponding ListView widgets, RotaryList accepts the same arguments as ListView. In addition to these there are the following attributes for the scrolling behavior:
+
+| Attribute | Type | Default |
+| --- | --- | --- |
+| scrollFactor | int | 100 |
+| scrollAnimationDuration | Duration | Duration(milliseconds: 200) |
+| scrollCurve | Curve | Curves.fastOutSlowIn |
+| reverseScroll | bool | false |
+
+
+### RotaryList
+```dart
+RotaryList(
+    children: [
+        // widgets ...
+    ],
+),
+```
+```dart
+RotaryList(
+    scrollFactor: 120,
+    scrollAnimationDuration: const Duration(milliseconds: 500),
+    scrollCurve: Curves.fastLinearToSlowEaseIn,
+    reverseScroll: true,
+    children: [
+        // widgets ...
+    ],
+),
+```
+
+### RotaryList.builder
+```dart
+RotaryList.builder(
+    itemBuilder: (_, int i) => Text(i.toString()),
+    itemCount: 100,
+),
+```
+```dart
+RotaryList.builder(
+    scrollFactor: 120,
+    scrollAnimationDuration: const Duration(milliseconds: 500),
+    scrollCurve: Curves.fastLinearToSlowEaseIn,
+    reverseScroll: true,
+    itemBuilder: (_, int i) => Text(i.toString()),
+    itemCount: 100,
+),
+```

@@ -28,8 +28,19 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: RotaryList(
-            children: elements,
+          child: RotaryList.builder(
+            itemBuilder: (_, int i) {
+              return Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                color: i % 2 == 0 ? Colors.blue : Colors.lightBlue,
+                child: Text(
+                  i.toString(),
+                  style: const TextStyle(color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+              );
+            },
+            itemCount: 200,
           ),
         ),
       ),
