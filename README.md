@@ -15,7 +15,7 @@ To use this plugin, the `minSdkVersion` of your android project has to be at lea
       flutter:
         sdk: flutter
 
-      # <other plugins>
+      # other plugins ...
 
       rotary_list:
         git:
