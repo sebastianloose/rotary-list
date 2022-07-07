@@ -25,7 +25,7 @@ To use this plugin, the `minSdkVersion` of your android project has to be at lea
 2. Run `flutter pub get` in your terminal
 
 ## Usage
-Since the RotaryList widgets are subclasses of their corresponding ListView widgets, RotaryList accepts the same arguments as ListView. In addition to these there are the following attributes for the scrolling behavior:
+Since the RotaryList widgets are subclasses of their corresponding ListView widgets, RotaryList accepts the same arguments as ListView. In addition to these, there are the following arguments to adjust the scrolling behavior of the rotary input:
 
 | Attribute | Type | Default |
 | --- | --- | --- |
