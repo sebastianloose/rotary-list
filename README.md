@@ -19,7 +19,7 @@ To use this plugin, the `minSdkVersion` of your android project has to be at lea
 
       rotary_list:
         git:
-          url: git://github.com/sebastianloose/rotary-list.git
+          url: https://github.com/sebastianloose/rotary-list.git
           ref: main
     ```
 2. Run `flutter pub get` in your terminal
